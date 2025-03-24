@@ -185,3 +185,71 @@
         color: #e0e0e0;
     }
 }
+
+/* Responsive styles for post content */
+
+/* Base styles */
+#post-content {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+/* Tables */
+#post-content table {
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+/* Code blocks */
+.code-wrapper {
+    margin: 15px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+#post-content pre {
+    margin: 0;
+    padding: 15px 10px;
+    overflow-x: auto;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+    #post-content pre {
+        font-size: 13px;
+        padding: 10px 5px;
+    }
+    
+    /* Adjust the copy button for mobile */
+    .copy-code-button {
+        padding: 2px 6px !important;
+        font-size: 10px !important;
+    }
+    
+    /* Headings */
+    #post-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    #post-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    #post-content h3 {
+        font-size: 1.3rem;
+    }
+}
+
+/* MathJax content */
+.MathJax {
+    overflow-x: auto;
+    max-width: 100%;
+}

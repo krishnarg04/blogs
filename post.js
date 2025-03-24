@@ -52,6 +52,8 @@ document.addEventListener('DOMContentLoaded', async function() {
                 document.querySelectorAll('pre code').forEach((block) => {
                     hljs.highlightElement(block);
                 });
+                // Process code blocks after highlighting
+                processCodeBlocks();
             };
             document.head.appendChild(highlightScript);
             
@@ -74,16 +76,12 @@ document.addEventListener('DOMContentLoaded', async function() {
 });
 
 function processImages() {
-    const MAX_WIDTH = 800;  // Maximum width in pixels
-    const MAX_HEIGHT = 600; // Maximum height in pixels
-    
     // Select all images and GIFs in the post content
     const mediaElements = document.querySelectorAll('#post-content img');
     
     mediaElements.forEach(element => {
-        // Apply max dimensions as inline styles
-        element.style.maxWidth = `${MAX_WIDTH}px`;
-        element.style.maxHeight = `${MAX_HEIGHT}px`;
+        // Make images responsive
+        element.style.maxWidth = '100%';
         element.style.height = 'auto';
         element.style.display = 'block';
         element.style.margin = '20px auto';
@@ -104,6 +102,73 @@ function processImages() {
             this.alt = 'Image failed to load';
         };
     });
+}
+
+// Add this function after processImages()
+function processCodeBlocks() {
+    const codeBlocks = document.querySelectorAll('#post-content pre code');
+    
+    codeBlocks.forEach(block => {
+        // Add a container for horizontal scrolling
+        const parent = block.parentNode;
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-wrapper';
+        
+        // Set the wrapper's styling
+        wrapper.style.overflowX = 'auto';
+        wrapper.style.maxWidth = '100%';
+        wrapper.style.position = 'relative';
+        
+        // Replace the pre element with our wrapper
+        parent.parentNode.insertBefore(wrapper, parent);
+        wrapper.appendChild(parent);
+        
+        // Add copy button functionality
+        addCopyButton(wrapper, block);
+    });
+}
+
+function addCopyButton(wrapper, codeBlock) {
+    const copyButton = document.createElement('button');
+    copyButton.className = 'copy-code-button';
+    copyButton.textContent = 'Copy';
+    copyButton.style.position = 'absolute';
+    copyButton.style.top = '5px';
+    copyButton.style.right = '5px';
+    copyButton.style.padding = '3px 8px';
+    copyButton.style.fontSize = '12px';
+    copyButton.style.background = '#444';
+    copyButton.style.color = 'white';
+    copyButton.style.border = 'none';
+    copyButton.style.borderRadius = '3px';
+    copyButton.style.opacity = '0.7';
+    copyButton.style.cursor = 'pointer';
+    
+    copyButton.addEventListener('mouseover', () => {
+        copyButton.style.opacity = '1';
+    });
+    
+    copyButton.addEventListener('mouseout', () => {
+        copyButton.style.opacity = '0.7';
+    });
+    
+    copyButton.addEventListener('click', () => {
+        const code = codeBlock.textContent;
+        navigator.clipboard.writeText(code).then(() => {
+            copyButton.textContent = 'Copied!';
+            setTimeout(() => {
+                copyButton.textContent = 'Copy';
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy code: ', err);
+            copyButton.textContent = 'Failed';
+            setTimeout(() => {
+                copyButton.textContent = 'Copy';
+            }, 2000);
+        });
+    });
+    
+    wrapper.appendChild(copyButton);
 }
 
 // Function to load MathJax
