@@ -9,21 +9,21 @@
     "title": "Variational Autoencoders Explained",
     "description": "An in-depth look at how variational autoencoders work and their applications.",
     "date": "2025-03-12T15:45:00Z",
-    "image": "/data/images/vae-color.png",
+    "image": "./data/images/vae-color.png",
     "file": "vae.md"
   },
   {
     "title": "Flow matching Image Generation",
     "description": "A detailed explanation of how flow-based models can be used for image generation.",
     "date": "2025-03-15T11:30:00Z",
-    "image": "/data/images/flowmatching_9.gif",
+    "image": "./data/images/flowmatching_9.gif",
     "file": "flow_matching-img.md"
   },
   {
     "title": "PyTorch in C++",
     "description": "How do I build Tensor libary in C++",
     "date": "2025-03-05T09:15:00Z",
-    "image": "/data/images/tensor_ops.png",
+    "image": "./data/images/tensor_ops.png",
     "file": "tensor.md"
   }
 ]
