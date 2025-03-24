@@ -237,9 +237,9 @@ Working with a face dataset introduced new challenges. The reconstructions were 
 
 ## Face Construction
 
-![VAE output of Anime Character](/data/images/vae-color.png)
+![VAE output of Anime Character](./data/images/vae-color.png)
 
 ## COCO 17 Dataset
 
 
-![VAE output of Anime Character](/data/images/vae-coco-color.png)
+![VAE output of Anime Character](./data/images/vae-coco-color.png)

@@ -306,13 +306,13 @@ The results were impressive, especially when compared to traditional diffusion m
 
 Below are some generated samples at different training stages:
 
-![Flow matching generation progress](/data/images/minist_flowmatching.png)
+![Flow matching generation progress](./data/images/minist_flowmatching.png)
 
 Here some Example Number Generation over timestamps
 
-![Number 9](/data/images/flowmatching_9.gif)
+![Number 9](./data/images/flowmatching_9.gif)
  
-![Number 6](/data/images/flowmatching_6.gif)
+![Number 6](./data/images/flowmatching_6.gif)
 
 ## Applications and Extensions
 
