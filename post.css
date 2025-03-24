@@ -1,0 +1,187 @@
+.post-container {
+    padding: var(--space-md);
+    max-width: 100%;
+    overflow-wrap: break-word; /* Prevent text overflow on mobile */
+}
+.post-title {
+    margin-bottom: var(--space-sm);
+    font-size: 2rem; /* Will scale down on mobile */
+}
+.post-date {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+    font-size: 0.9rem;
+}
+.post-content {
+    line-height: 1.8;
+}
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block; /* Better image alignment */
+    margin: var(--space-md) auto; /* Center images with margin */
+}
+/* Code block styling with darker background */
+.post-content pre {
+    background-color: #1c1c1c; /* Very dark background */
+    padding: var(--space-sm);
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: var(--space-md) 0; /* Add vertical spacing */
+    font-size: 0.9rem; /* Slightly smaller for mobile */
+    border: 1px solid #333; /* Subtle border */
+}
+.post-content code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    padding: 0.1em 0.3em;
+    background: rgba(0,0,0,0.08); /* Darker than previous 0.05 */
+    border-radius: 3px;
+}
+/* Prevent code blocks from having the inline code styling */
+.post-content pre code {
+    background-color: transparent; /* Remove any background from the code inside pre */
+    padding: 0;
+    font-size: 0.9rem;
+    color: #e0e0e0; /* Light text color for dark background */
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+.post-content blockquote {
+    border-left: 4px solid var(--color-accent);
+    padding-left: var(--space-md);
+    margin-left: 0;
+    margin-right: 0;
+    color: var(--color-text-secondary);
+}
+.post-content h1, 
+.post-content h2, 
+.post-content h3 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+.post-content p {
+    margin-bottom: 1em;
+}
+/* Improved back link with larger touch target */
+.back-link {
+    display: inline-block;
+    margin-bottom: var(--space-md);
+    color: var(--color-accent);
+    text-decoration: none;
+    padding: var(--space-xs) 0;
+    font-weight: 500;
+}
+.back-link:hover {
+    text-decoration: underline;
+}
+.back-link::before {
+    content: "←";
+    margin-right: 5px;
+}
+/* Table styling */
+.post-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space-md) 0;
+    overflow-x: auto;
+    display: block;
+}
+.post-content th,
+.post-content td {
+    padding: 8px;
+    border: 1px solid var(--color-border);
+    text-align: left;
+}
+.post-content th {
+    background-color: rgba(0,0,0,0.05);
+}
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+    .post-content pre {
+        background-color: #1a1a1a; /* Darker than the previous #222222 */
+    }
+    
+    .post-content code {
+        background: rgba(255,255,255,0.15); /* Darker than previous 0.1 */
+    }
+    
+    .post-content th {
+        background-color: rgba(255,255,255,0.05);
+    }
+}
+/* Light mode overrides */
+@media (prefers-color-scheme: light) {
+    .post-content pre {
+        background-color: #2d2d2d; /* Dark background even in light mode */
+    }
+    
+    .post-content pre code {
+        color: #e0e0e0; /* Light text for dark background */
+    }
+}
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .post-container {
+        padding: var(--space-sm);
+    }
+    
+    .post-title {
+        font-size: 1.6rem;
+    }
+    
+    .post-content h1 {
+        font-size: 1.5rem;
+    }
+    
+    .post-content h2 {
+        font-size: 1.3rem;
+    }
+    
+    .post-content h3 {
+        font-size: 1.1rem;
+    }
+    
+    .back-link {
+        padding: var(--space-sm) 0; /* Larger touch target */
+        font-size: 1rem;
+        display: block;
+        margin-bottom: var(--space-sm);
+    }
+    
+    .post-content pre {
+        padding: var(--space-xs);
+        font-size: 0.8rem;
+    }
+}
+/* Even smaller screens */
+@media (max-width: 400px) {
+    .post-container {
+        padding: var(--space-xs);
+    }
+    
+    .post-title {
+        font-size: 1.4rem;
+    }
+
+    .post-date {
+        font-size: 0.8rem;
+    }
+}
+
+.mjx-math {
+    font-size: 110%;
+}
+
+.post-content .math-display {
+    overflow-x: auto;
+    padding: var(--space-sm) 0;
+    margin: var(--space-md) 0;
+}
+
+/* Dark mode math styling */
+@media (prefers-color-scheme: dark) {
+    .mjx-math {
+        color: #e0e0e0;
+    }
+}
